@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="suncat_admin.admin.news.class">Suncat\AdminBundle\Admin\NewsAdmin</parameter>
+        <parameter key="suncat_admin.admin.comment.class">Suncat\AdminBundle\Admin\CommentAdmin</parameter>
+        <parameter key="suncat_admin.admin.tag.class">Suncat\AdminBundle\Admin\TagAdmin</parameter>
+    </parameters>
+
+    <services>
+        <!-- Admins services -->
+        <service id="suncat_admin.admin.news" class="%suncat_admin.admin.news.class%">
+            <tag name="sonata.admin" manager_type="orm" group="news_group" label="news" show_in_dashboard="true"/>
+            <call method="setTranslationDomain">
+                <argument>SuncatAdminBundle</argument>
+            </call>
+            <argument/>
+            <argument>Suncat\AdminBundle\Entity\News</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+        <service id="suncat_admin.admin.comment" class="%suncat_admin.admin.comment.class%">
+            <tag name="sonata.admin" manager_type="orm" group="news_group" label="comment" show_in_dashboard="true"/>
+            <call method="setTranslationDomain">
+                <argument>SuncatAdminBundle</argument>
+            </call>
+            <argument/>
+            <argument>Suncat\AdminBundle\Entity\Comment</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+        <service id="suncat_admin.admin.tag" class="%suncat_admin.admin.tag.class%">
+            <tag name="sonata.admin" manager_type="orm" group="news_group" label="tag" show_in_dashboard="true"/>
+            <call method="setTranslationDomain">
+                <argument>SuncatAdminBundle</argument>
+            </call>
+            <argument/>
+            <argument>Suncat\AdminBundle\Entity\Tag</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+    </services>
+</container>

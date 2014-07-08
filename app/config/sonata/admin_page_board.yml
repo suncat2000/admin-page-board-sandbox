@@ -1,0 +1,24 @@
+suncat_admin_page_board:
+    page_boards:
+        news_detail:
+            blocks:
+                -
+                    position: left
+                    type: suncat_admin.admin.block.news_detail
+                    settings:
+                        title: News detail
+                -
+                    position: right
+                    type: suncat_admin.admin.block.news_comments
+                    settings:
+                        title: News comments
+                -
+                    position: right
+                    type: suncat_admin.admin.block.news_tags
+                    settings:
+                        title: News tags
+            route:
+                name: admin_suncat_admin_news_board
+                path: /suncat/admin/news/{id}/board
+                requirements:
+                    id:  \d+

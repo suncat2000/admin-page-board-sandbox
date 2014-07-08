@@ -1,0 +1,9 @@
+sonata_admin:
+    # default value, change it to sonata.admin.security.handler.acl to use ACL
+    security:
+        handler: sonata.admin.security.handler.role
+    templates:
+            layout: SuncatAdminBundle::layout.html.twig
+    dashboard:
+        blocks:
+            - { position: left, type: sonata.admin.block.admin_list }

@@ -1,0 +1,54 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <h4 class="news-detail-data-title">{{ settings.title }}</h4>
+    <hr style="margin-top:0;">
+
+    <div class="news-detail-data-container">
+        {% if news %}
+            <div class="row">
+                <div class="col-md-8">
+                    <strong style="font-size: 18px;">#{{ news.id }} - {{ news.title }}</strong>
+                </div>
+                <div class="col-md-4">
+                    <div class="sonata-actions btn-group">
+                        <a class="btn btn-sm btn-default sonata-action-element" href="{{ path('admin_suncat_admin_news_edit', {id: news.id}) }}">
+                            <i class="fa fa-pencil-square-o"></i> Edit
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped" style="margin-top: 10px;">
+                        <tr>
+                            <td>Enabled</td><td>{{ news.enabled ? '<span class="label label-success">yes</span>' : '<span class="label label-important">no</span>' }}</td>
+                        </tr>
+                        <tr>
+                            <td>Created At</td><td>{{ news.createdAt|date("m/d/Y") }}</td>
+                        </tr>
+                        <tr>
+                            <td>Updated At</td><td>{{ news.updatedAt|date("m/d/Y") }}</td>
+                        </tr>
+                        <tr>
+                            <td>Text</td><td>{{ news.text }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        {% else %}
+            News is empty
+        {% endif %}
+    </div>
+{% endblock %}

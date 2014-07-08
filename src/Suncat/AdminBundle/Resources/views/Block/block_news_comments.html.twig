@@ -1,0 +1,64 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <h4 class="news-comments-data-title">{{ settings.title }}</h4>
+    <hr style="margin-top:0;">
+
+    <div class="news-comments-data-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sonata-actions btn-group">
+                    <a class="btn btn-sm btn-success btn-outline sonata-ba-action" href="{{ path('admin_suncat_admin_comment_create') }}">
+                        <i class="fa fa-bars"></i> Add new
+                    </a>
+                    <a class="btn btn-sm btn-info btn-outline sonata-action-element" href="{{ path('admin_suncat_admin_comment_list') }}">
+                        <i class="fa fa-bars"></i> List
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        {% if comments|length > 0 %}
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped" style="margin-top: 10px;">
+                        <tr>
+                            <th>#</th>
+                            <th>Text</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Actions</th>
+                        </tr>
+                        {% for comment in comments %}
+                            <tr>
+                                <td>{{ comment.id  }}</td>
+                                <td>{{ comment.text|length > 50 ? comment.text|slice(0, 50) ~ '...' : comment.text  }}</td>
+                                <td>{{ comment.createdAt|date("m/d/Y") }}</td>
+                                <td>{{ comment.updatedAt|date("m/d/Y") }}</td>
+                                <td>
+                                    <div class="sonata-actions btn-group">
+                                        <a class="btn btn-sm btn-default sonata-action-element" href="{{ path('admin_suncat_admin_comment_edit', {id: comment.id}) }}">
+                                            <i class="fa fa-pencil-square-o"></i> Edit
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        {% else %}
+            Comments is empty
+        {% endif %}
+    </div>
+{% endblock %}
