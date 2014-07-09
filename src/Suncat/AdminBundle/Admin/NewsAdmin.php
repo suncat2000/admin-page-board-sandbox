@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
  * Class NewsAdmin
@@ -29,7 +30,7 @@ class NewsAdmin extends Admin
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
-                    'news_board' => array('template' => 'SuncatAdminBundle:CRUD:list__action_news_board.html.twig'),
+                    'board' => array('route' => 'admin_suncat_admin_news_board'),
                 )
             ))
         ;
@@ -56,5 +57,23 @@ class NewsAdmin extends Admin
                 ->add('text')
                 ->add('tags', 'sonata_type_model', ['multiple' => true, 'expanded' => true])
             ->end();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->with('General')
+                ->add('enabled')
+                ->add('title')
+                ->add('text')
+            ->end()
+            ->with('Timestampable')
+                ->add('createdAt')
+                ->add('updatedAt')
+            ->end()
+        ;
     }
 }

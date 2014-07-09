@@ -1727,12 +1727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/suncat2000/AdminPageBoardBundle.git",
-                "reference": "3d4ebee1e63a392d09e8fa9fc41e254a49f7d307"
+                "reference": "3827a84437c5306f8a72f1924178c15ae4664a96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/suncat2000/AdminPageBoardBundle/zipball/3d4ebee1e63a392d09e8fa9fc41e254a49f7d307",
-                "reference": "3d4ebee1e63a392d09e8fa9fc41e254a49f7d307",
+                "url": "https://api.github.com/repos/suncat2000/AdminPageBoardBundle/zipball/3827a84437c5306f8a72f1924178c15ae4664a96",
+                "reference": "3827a84437c5306f8a72f1924178c15ae4664a96",
                 "shasum": ""
             },
             "require": {
@@ -1771,7 +1771,7 @@
                 "page-board",
                 "sonata"
             ],
-            "time": "2014-07-08 16:16:22"
+            "time": "2014-07-09 11:36:21"
         },
         {
             "name": "swiftmailer/swiftmailer",

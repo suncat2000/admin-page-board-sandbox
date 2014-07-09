@@ -4,9 +4,15 @@ suncat_admin_page_board:
             blocks:
                 -
                     position: left
+                    type: suncat_admin_page_board.admin.block.admin_show
+                    settings:
+                        title: News detail (admin show)
+                        sonata_admin_code: suncat_admin.admin.news
+                -
+                    position: left
                     type: suncat_admin.admin.block.news_detail
                     settings:
-                        title: News detail
+                        title: News detail (manual)
                 -
                     position: right
                     type: suncat_admin.admin.block.news_comments
